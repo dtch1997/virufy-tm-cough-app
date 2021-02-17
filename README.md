@@ -11,7 +11,7 @@ Open `index.html` in the browser
 
 
 ## Start Detecting
-* Turn on the microphone switch and allowing the browser to access your microphone
+* Turn on the microphone switch and allow the browser to access your microphone
 
 ## Library
 * [jquery](https://code.jquery.com/jquery-3.3.1.min.js) - JQuery
