@@ -17,3 +17,7 @@ Browse to http://localhost/index.html
 ## Library
 * [jquery](https://code.jquery.com/jquery-3.3.1.min.js) - JQuery
 * [tensorflowjs](https://github.com/tensorflow/tfjs-models/tree/master/speech-commands) - JavaScript module that enables recognition of spoken commands
+
+## Acknowledgements
+
+Adapted from https://github.com/bensonruan/Speech-Command/
