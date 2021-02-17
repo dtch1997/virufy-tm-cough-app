@@ -1,4 +1,7 @@
 # Virufy Teachable Machine Cough Classifier
+
+DISCLAIMER: This project is highly experimental. At the moment this model is not an accurate predictor of whether you have COVID. Please seek medical help if you feel unwell or have flu-like symptoms. 
+
 A simple web app that uses a Teachable Machine-trained model to classify presence/absence of COVID from a cough recording. 
 
 ## Getting Started
