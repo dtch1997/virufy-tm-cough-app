@@ -1,14 +1,10 @@
 # Virufy Teachable Machine Cough Classifier
 A simple web app that uses a Teachable Machine-trained model to classify presence/absence of COVID from a cough recording. 
 
-## Installing
+## Getting Started
 Clone this repository to your local computer
-``` bash
-git https://github.com/bensonruan/Speech-Command.git
-```
-Point your localhost to the cloned root directory
 
-Browse to http://localhost/index.html
+Open `index.html` in the browser
 
 
 ## Start Detecting
