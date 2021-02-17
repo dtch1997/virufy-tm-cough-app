@@ -1,5 +1,5 @@
-# Speech Command
-  Speech Command Recognizer from Microphone in browser using javascript library tensorflowjs
+# Virufy Teachable Machine Cough Classifier
+A simple web app that uses a Teachable Machine-trained model to classify presence/absence of COVID from a cough recording. 
 
 ## Installing
 Clone this repository to your local computer
