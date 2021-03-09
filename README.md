@@ -12,6 +12,8 @@ Open `index.html` in the browser
 
 ## Start Detecting
 * Turn on the microphone switch and allow the browser to access your microphone
+* If your cough is not recognized, make sure you are in a quiet environment and try again.  
+* Our application classifies your cough when it has 70% confidence in the result
 
 ## Library
 * [jquery](https://code.jquery.com/jquery-3.3.1.min.js) - JQuery
