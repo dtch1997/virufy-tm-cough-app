@@ -6,7 +6,7 @@ let startTime;
 let d = new Date();
 
 $( document ).ready(function() {
-    wordList = ["Negative", "Positive"]
+    wordList = ["healthy", "COVID-19"]
     $.each(wordList, function( index, word ) {
         if (!word.startsWith('_')){
             $("#candidate-words").append(`<span class='candidate-word col-md-2 col-sm-3 col-3' id='word-${word}'>${word}</span>`);
@@ -34,7 +34,7 @@ function loadModel(){
     // - BROWSER_FFT uses the browser's native Fourier transform.
     // - SOFT_FFT uses JavaScript implementations of Fourier transform (not implemented yet).
 
-    const URL = "https://cs329s-edge.s3.us-east-2.amazonaws.com/tm-my-audio-model/";
+    const URL = "https://cs329s-virufy-playground.s3.us-east-2.amazonaws.com/speech_commands_custom_model_v1/";
     const checkpointURL = URL + "model.json"; // model topology
     const metadataURL = URL + "metadata.json"; // model metadata
     console.log("Loading model from " + URL);
@@ -75,6 +75,7 @@ function startListening(){
         // scores contains the probability scores that correspond to recognizer.wordLabels().
         // Turn scores into a list of (score,word) pairs.
         console.log("Cough detected");
+        console.log("Probabilities are: " + scores);
         scores = Array.from(scores).map((s, i) => ({score: s, word: words[i]}));
         // Find the most probable word.
         scores.sort((s1, s2) => s2.score - s1.score);
@@ -84,8 +85,7 @@ function startListening(){
             $("#word-"+scores[0].word).removeClass('candidate-word-active');
         }, 2000);
 
-    },
-    {
+    },  {
         probabilityThreshold: 0.70
     });
 }
