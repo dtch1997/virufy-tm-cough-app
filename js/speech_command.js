@@ -5,6 +5,8 @@ let modelLoaded = false;
 let startTime;
 let d = new Date();
 
+let listen = true;
+
 $( document ).ready(function() {
     wordList = ["healthy", "COVID-19"]
     $.each(wordList, function( index, word ) {
@@ -25,6 +27,10 @@ $("#audio-switch").change(function() {
     else {
         stopListening();
     }
+});
+
+$("#restart-listen").click(function() {
+    listen = true;
 });
 
 function loadModel(){
@@ -48,6 +54,8 @@ function loadModel(){
         // Make sure that the underlying model and metadata are loaded via HTTPS requests.
         recognizer.ensureModelLoaded()
       ]).then(function(){
+        // Only listen to the first audio slice
+
         console.log("Model loaded in " + ((d.getTime() - startTime) / 1000) + " seconds");
         console.log(recognizer.modelInputShape());
         console.log(recognizer.params().sampleRateHz);
@@ -72,10 +80,15 @@ function startListening(){
     //    - probabilityThreshold
     //    - includeEmbedding
     recognizer.listen(({scores}) => {
-        // scores contains the probability scores that correspond to recognizer.wordLabels().
-        // Turn scores into a list of (score,word) pairs.
+        if (!listen) {
+            console.log("Ignoring subsequent samples");
+            return;
+        }
+        listen = false;
         console.log("Cough detected");
         console.log("Probabilities are: " + scores);
+        // scores contains the probability scores that correspond to recognizer.wordLabels().
+        // Turn scores into a list of (score,word) pairs.\
         scores = Array.from(scores).map((s, i) => ({score: s, word: words[i]}));
         // Find the most probable word.
         scores.sort((s1, s2) => s2.score - s1.score);
